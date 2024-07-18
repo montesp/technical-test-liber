@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.home {
+  width: 100%;
+  max-width: 1320px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px 20px;
+
+  &__title {
+    margin-bottom: 2px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: $black;
+
+    @include tablet-sm {
+      font-size: 2.2rem;
+      text-align: start;
+    }
+
+    @include desktop-sm {
+      font-size: 2.4rem;
+    }
+
+    @include desktop-md {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}

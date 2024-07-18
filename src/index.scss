@@ -1,10 +1,24 @@
-.test {
-  &-title {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  &-text {
-    color: red;
-  }
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Variables
+@import './styles/variables';
+@import './styles/mixins';
+
+// Pages
+@import './styles/home';
+
+// Components
+@import './styles/tables';
+@import './styles/buttons';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
 }
