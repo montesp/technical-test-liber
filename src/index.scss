@@ -5,9 +5,12 @@
 @import './styles/variables';
 @import './styles/mixins';
 
-// Styles
-@import './styles/styles';
+// Pages
 @import './styles/home';
+
+// Components
+@import './styles/tables';
+@import './styles/buttons';
 
 * {
   box-sizing: border-box;
