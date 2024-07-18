@@ -1,4 +1,6 @@
 import { Props } from "./types";
+import { AiFillSave, AiFillEdit, AiFillDelete } from "react-icons/ai";
+
 
 export const TableRow = ( { user }: Props ) => {
   return (
@@ -25,9 +27,18 @@ export const TableRow = ( { user }: Props ) => {
         </div>
       </td>
       <td className="table__cell table__cell--body">
-        <button className="button">D</button>
-        <button className="button">A</button>
-        <button className="button">E</button>
+        <button className="button button__action">
+          <AiFillSave size={14}  />
+          {/* <span>Editar</span> */}
+        </button>
+        <button className="button button__action">
+          <AiFillEdit size={14}  />
+          {/* <span>Editar</span> */}
+        </button>
+        <button className="button button__action">
+          <AiFillDelete size={14}  />
+          {/* <span>Editar</span> */}
+        </button>
       </td>
     </tr>
   );
