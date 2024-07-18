@@ -5,8 +5,8 @@ const App = () => {
 
   return (
     <>
-      <h1>Init project</h1>
-      <p>State comprobation: { users[0].id}</p>
+      <h1 className="test-title">Init project</h1>
+      <p className="test-text">State comprobation: { users[0].id}</p>
     </>
   )
 }
