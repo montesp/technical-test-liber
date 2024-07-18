@@ -2,10 +2,13 @@ import { useEffect } from "react";
 import { UserList } from "../../components/UserList";
 import { env } from "../../env/environment";
 import axios from "axios";
-import { useDispatch } from "react-redux";
 import { saveUsers } from "../../app/usersSlice";
+import { DeleteModal } from "../../components/DeleteModal";
+import { useModal } from "../../hooks/useModal";
+import { useDispatch } from "react-redux";
 
 export const HomePage = () => {
+  const { isOpenDeleteModal } = useModal();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,14 +24,19 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <main className="home">
-      <h1 className='home__title'>
-        Lista de Usuarios
-      </h1>
-      <div className="home__buttons">
-        <button className="button button--create">Crear usuario</button>
-      </div>
-      <UserList/>
-    </main>
+    <>
+      {isOpenDeleteModal && (
+        <DeleteModal/>
+      )}
+      <main className="home">
+        <h1 className='home__title'>
+          Lista de Usuarios
+        </h1>
+        <div className="home__buttons">
+          <button className="button button--create">Crear usuario</button>
+        </div>
+        <UserList/>
+      </main>
+    </>
   );
 }

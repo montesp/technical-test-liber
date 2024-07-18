@@ -6,8 +6,6 @@ export interface User {
   status: string;
 }
 
-export interface UserState {
-  users: User[];
-}
+
 
 

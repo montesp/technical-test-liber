@@ -4,8 +4,7 @@ import { TableRow } from "../TableRow";
 
 
 export const UserList = () => {
-  const { users } = useSelector( (state) => state.users)
-  
+  const { users } = useSelector( (state) => state.users);
 
   return (
     <section className="wrapper">
