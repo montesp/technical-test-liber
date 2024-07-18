@@ -1,10 +1,13 @@
-.test {
-  &-title {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  &-text {
-    color: red;
-  }
+@import './styles/styles';
+@import './styles/variables';
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
 }
