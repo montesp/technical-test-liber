@@ -1,7 +1,12 @@
+import { UserList } from "../../components/UserList";
+
 export const HomePage = () => {
   return (
-    <div>
-      <p className='home-title'>Home</p>
-    </div>
+    <main className="home">
+      <h1 className='home__title'>
+        Lista de Usuarios
+      </h1>
+      <UserList/>
+    </main>
   );
 }

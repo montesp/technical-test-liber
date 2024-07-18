@@ -1,6 +1,115 @@
 .home {
-  &-title {
-    font-size: 4rem;
+  width: 100%;
+  max-width: 1320px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px 20px;
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 2rem;
     font-weight: bold;
+    text-align: center;
+    color: $black;
+
+    @include tablet-sm {
+      font-size: 2.2rem;
+      text-align: start;
+    }
+
+    @include desktop-sm {
+      font-size: 2.4rem;
+    }
+
+    @include desktop-md {
+      font-size: 2.8rem;
+    }
   }
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 2px solid $light-gray;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  background-color: $white;
+  overflow: auto;
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(170px, 1fr));
+    width: max-content;
+    min-width: 100%;
+    border-bottom: 2px solid $light-gray;
+
+    @include tablet-sm {
+      grid-template-columns: repeat(6, minmax(200px, 1fr));
+    }
+
+
+    &--head {
+      padding: 4px 8px;
+      color: $gray;
+
+      @include tablet-sm {
+        padding: 6px 10px;
+      }
+
+      @include desktop-sm {
+        padding: 6px 20px;
+      }
+    }
+
+    &--body {
+      padding: 5px 10px;
+      color: $black;
+
+      @include tablet-sm {
+        padding: 5px 10px;
+      }
+
+      @include desktop-sm {
+        padding: 6px 20px;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__cell {
+    display: flex;
+    align-items: center;
+    text-align: start;
+
+    &--head {
+      padding: 5px 2px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    &--body {
+      padding: 5px 0;
+      font-size: 1rem;
+      font-weight: normal;
+
+      @include tablet-sm {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.button {
+  margin: 0 2px;
+  padding: 6px 12px;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background-color: $black;
+  font-weight: 600;
+  color: $white;
 }

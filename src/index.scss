@@ -1,5 +1,12 @@
-@import './styles/styles';
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Variables
 @import './styles/variables';
+@import './styles/mixins';
+
+// Styles
+@import './styles/styles';
 @import './styles/home';
 
 * {
@@ -9,5 +16,6 @@
 }
 
 html {
+  font-family: "Montserrat", sans-serif;
   font-size: 10px;
 }
