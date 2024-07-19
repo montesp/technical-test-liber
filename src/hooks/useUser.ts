@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { env } from "../env/environment";
-import { saveUsers } from "../app/usersSlice";
+import { saveUsers, updateFormInfo } from "../app/usersSlice";
 import axios from "axios";
-import { User } from "../types/user.model";
+import { User, UserCreated } from "../types/user.model";
 
 
 export const useUser = () => {
   const dispatch = useDispatch();
-  const { users } = useSelector( state => state.users);
+  const { users, currentUser, formData } = useSelector( state => state.users);
 
   const getAllUsers = async() => {
     const { status, data } = await axios.get(`${env.apiUrl}/public/v2/users`);
@@ -15,6 +15,10 @@ export const useUser = () => {
     if(status === 200){
       dispatch(saveUsers(data))
     }
+  }
+
+  const createUser = (newUser: UserCreated) => {
+    console.log(newUser);
   }
 
   const deleteUser = async ( userDeleted: User ) => {
@@ -29,9 +33,18 @@ export const useUser = () => {
     }
   }
 
+  const updateFormUserData = (event) => {
+    const { name, value } = event.target;
+    dispatch(updateFormInfo({ name, value }));
+  };
+
   return {
     users,
+    currentUser,
+    formData,
     getAllUsers,
-    deleteUser
+    createUser,
+    deleteUser,
+    updateFormUserData
   }
 }

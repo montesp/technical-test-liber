@@ -1,13 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { openDeleteModal, closeDeleteModal } from "../app/modalSlice";
+import { openDeleteModal, closeDeleteModal, openCreateModal, closeCreateModal } from "../app/modalSlice";
 import { User } from "../types/user.model";
 import { saveUser } from "../app/usersSlice";
 
 
 export const useModal = () => {
   const dispatch = useDispatch();
-  const { currentUser } = useSelector( state => state.users);
-  const { isOpenDeleteModal } = useSelector( state => state.modal);
+  const { isOpenDeleteModal, isOpenCreateModal } = useSelector( state => state.modal);
 
   const changeToOpenDeleteModal = (user: User) => {
     dispatch(saveUser(user));
@@ -17,12 +16,19 @@ export const useModal = () => {
     dispatch(closeDeleteModal());
   }
 
-  return {
-    currentUser,
-    isOpenDeleteModal,
-    changeToOpenDeleteModal,
-    changeToCloseDeleteModal
+  const changeToOpenCreateModal = () => {
+    dispatch(openCreateModal());
+  }
+  const changeToCloseCreateModal = () => {
+    dispatch(closeCreateModal());
   }
 
-
+  return {
+    isOpenDeleteModal,
+    isOpenCreateModal,
+    changeToOpenDeleteModal,
+    changeToCloseDeleteModal,
+    changeToOpenCreateModal,
+    changeToCloseCreateModal
+  }
 }

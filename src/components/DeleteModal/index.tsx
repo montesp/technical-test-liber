@@ -6,9 +6,8 @@ import { useUser } from "../../hooks/useUser";
 export const DeleteModal = () => {
   const {
     changeToCloseDeleteModal,
-    currentUser
   } = useModal();
-  const { deleteUser } = useUser();
+  const { deleteUser, currentUser } = useUser();
 
   const deleteUserAndCloseModal = () => {
     deleteUser(currentUser);
@@ -18,8 +17,8 @@ export const DeleteModal = () => {
   return (
     <main className="portal">
       <section className="modal">
-        <h2 className="modal__title">
-          Eliminar usuario <span className="modal__title--user"> { currentUser.id } </span> 
+        <h2 className="modal__title modal__title--delete">
+          Eliminar usuario <span className="modal__title--user"> { currentUser.id } </span>
         </h2>
         <button
           onClick={changeToCloseDeleteModal}
@@ -39,9 +38,9 @@ export const DeleteModal = () => {
           </button>
           <button
             onClick={deleteUserAndCloseModal}
-            className="button button__modal button__modal--accept"
+            className="button button__modal button__modal--delete"
           >
-            Aceptar
+            Eliminar
           </button>
         </div>
       </section>

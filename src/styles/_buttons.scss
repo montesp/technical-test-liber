@@ -27,8 +27,12 @@
     padding: 10px 12px;
     border-radius: 5px;
 
-    &--accept {
+    &--delete {
       background-color: $error;
+    }
+    &--accept {
+      background-color: $black;
+      color: white;
     }
 
     &--cancel {

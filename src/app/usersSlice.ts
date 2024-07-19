@@ -9,6 +9,12 @@ const initialState: UserState = {
     gender: '',
     name: '',
     status: ''
+  },
+  formData: {
+    email: '',
+    gender: '',
+    name: '',
+    status: ''
   }
 }
 
@@ -22,8 +28,12 @@ export const userSlice = createSlice({
     saveUser: (state, action) => {
       state.currentUser = action.payload
     },
+    updateFormInfo: (state, action) => {
+      const { name, value } = action.payload;
+      state.formData[name] = value;
+    },
   }
 })
 
-export const { saveUsers, saveUser } = userSlice.actions;
+export const { saveUsers, saveUser, updateFormInfo } = userSlice.actions;
 export default userSlice.reducer;
