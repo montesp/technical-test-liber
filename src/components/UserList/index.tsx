@@ -1,10 +1,10 @@
-import { useSelector } from "react-redux";
+import { useUser } from "../../hooks/useUser";
 import { TableHead } from "../TableHead";
 import { TableRow } from "../TableRow";
 
 
 export const UserList = () => {
-  const { users } = useSelector( (state) => state.users);
+  const { users } = useUser();
 
   return (
     <section className="wrapper">
