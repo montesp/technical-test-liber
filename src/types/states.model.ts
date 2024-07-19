@@ -1,11 +1,13 @@
-import { User } from "./user.model";
+import { User, UserCreated } from "./user.model";
 
 export interface UserState {
   users: User[];
   currentUser: User;
+  formData: UserCreated;
 }
 
 export interface ModalState {
-  isOpenDeleteModal: boolean
+  isOpenDeleteModal: boolean,
+  isOpenCreateModal: boolean
 }
 

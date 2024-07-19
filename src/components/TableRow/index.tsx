@@ -4,9 +4,7 @@ import { AiFillSave, AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 
 export const TableRow = ( { user }: Props ) => {
-  const {
-    changeToOpenDeleteModal
-  } = useModal();
+  const { changeToOpenDeleteModal } = useModal();
 
   return (
     <tr className="table__row table__row--body">

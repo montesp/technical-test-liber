@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 //Fonts
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
@@ -11,6 +15,7 @@
 // Components
 @import './styles/tables';
 @import './styles/buttons';
+@import './styles/forms';
 
 // Modals
 @import './styles/modals';
