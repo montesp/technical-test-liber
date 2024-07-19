@@ -14,18 +14,47 @@
 }
 
 .modal {
+  position: relative;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  width: 360px;
-  height: 120px;
+  max-width: 280px;
+  max-height: 420px;
   padding: 15px 20px;
+  border-radius: 5px;
   background-color: $white;
 
-  
-
-  &__button {
-
+  @include mobile-md {
+    max-width: 340px;
   }
 
+  @include tablet-sm {
+    padding: 25px 30px;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: $error;
+
+    &--user {
+      font-weight: bold;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    &--user {
+      font-weight: 800;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
 }

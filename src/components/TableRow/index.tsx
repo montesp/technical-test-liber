@@ -8,8 +8,6 @@ export const TableRow = ( { user }: Props ) => {
     changeToOpenDeleteModal
   } = useModal();
 
-
-
   return (
     <tr className="table__row table__row--body">
       <td className="table__cell table__cell--body">
