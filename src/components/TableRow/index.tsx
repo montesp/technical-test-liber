@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import { Props } from "./types";
 import { AiFillSave, AiFillEdit, AiFillDelete } from "react-icons/ai";
@@ -33,8 +34,10 @@ export const TableRow = ( { user }: Props ) => {
         <button className="button button__action">
           <AiFillSave size={14}  />
         </button>
-        <button className="button button__action">
-          <AiFillEdit size={14}  />
+        <button  className="button button__action">
+          <Link to={`user/${user.id}`}>
+            <AiFillEdit size={14}  />
+          </Link>
         </button>
         <button
           onClick={() => changeToOpenDeleteModal(user)}

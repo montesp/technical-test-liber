@@ -4,7 +4,7 @@ import { useUser } from "../../hooks/useUser";
 
 export const CreateUserModal = () => {
   const { changeToCloseCreateModal } = useModal();
-  const { createUser, formData, updateFormUserData } = useUser();
+  const { createUser, formData, updateFormData } = useUser();
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -36,7 +36,7 @@ export const CreateUserModal = () => {
               className="form__input-text"
               placeholder="Nombre"
               value={formData.name}
-              onChange={updateFormUserData}
+              onChange={updateFormData}
             />
           </div>
           <div className="form__input">
@@ -46,14 +46,14 @@ export const CreateUserModal = () => {
               className="form__input-text"
               placeholder="Correo"
               value={formData.email}
-              onChange={updateFormUserData}
+              onChange={updateFormData}
             />
           </div>
           <select
             className="form__select"
             name="gender"
             value={formData.gender}
-            onChange={updateFormUserData}
+            onChange={updateFormData}
           >
             <option value="" disabled> Selecciona tu genero </option>
             <option value="male">Hombre</option>
@@ -64,7 +64,7 @@ export const CreateUserModal = () => {
             className="form__select"
             name="status"
             value={formData.status}
-            onChange={updateFormUserData}
+            onChange={updateFormData}
           >
             <option className="form__select-option form__select-option--selected" value="" disabled>
               Selecciona un estado
