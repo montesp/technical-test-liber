@@ -34,6 +34,13 @@ export const useUser = () => {
     }
   }
 
+  const editUser = async (userId:number, editedUser: UserCreated) => {
+    const headers = {
+      headers: { Authorization: `Bearer ${env.token}` }
+    };
+    await axios.put(`${env.apiUrl}/public/v2/users/${userId}`,editedUser, headers);
+  }
+
   const deleteUser = async ( userDeleted: User ) => {
     const headers = {
       headers: { Authorization: `Bearer ${env.token}` }
@@ -68,6 +75,7 @@ export const useUser = () => {
     getAllUsers,
     getUser,
     createUser,
+    editUser,
     deleteUser,
     updateFormData,
     updateFormUserData,

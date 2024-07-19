@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
+import { UserCreated } from "../../types/user.model";
 
 export const UserPage = () => {
   const params = useParams();
   const isParamsEmpty: boolean = Object.keys(params).length === 0;
-  const { getUser, formUserData, updateFormUserData, saveUserDataForm } = useUser();
+  const { getUser, editUser, formUserData, updateFormUserData, saveUserDataForm } = useUser();
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -15,8 +17,16 @@ export const UserPage = () => {
     }
   },[])
 
-  const onSubmit = () => {
-    console.log('submit');
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const dataEdit: UserCreated = {
+      name: formUserData.name,
+      email: formUserData.email,
+      gender: formUserData.gender,
+      status: formUserData.status
+    }
+    editUser(formUserData.id, dataEdit);
+    navigate('/');
   }
 
   return (
