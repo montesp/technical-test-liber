@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ModalState } from "../types/states.model";
 
 const initialState: ModalState = {
-  isOpenDeleteModal: true
+  isOpenDeleteModal: false
 }
 
 export const modalSlice = createSlice({

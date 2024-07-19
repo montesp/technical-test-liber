@@ -7,10 +7,10 @@ import { useUser } from "../../hooks/useUser";
 
 export const HomePage = () => {
   const { isOpenDeleteModal } = useModal();
-  const { getUsers } = useUser();
+  const { getAllUsers } = useUser();
 
   useEffect(() => {
-    getUsers();
+    getAllUsers();
   }, []);
 
   return (

@@ -1,5 +1,6 @@
 import { useModal } from "../../hooks/useModal";
 import { AiOutlineClose } from "react-icons/ai";
+import { useUser } from "../../hooks/useUser";
 
 
 export const DeleteModal = () => {
@@ -7,6 +8,12 @@ export const DeleteModal = () => {
     changeToCloseDeleteModal,
     currentUser
   } = useModal();
+  const { deleteUser } = useUser();
+
+  const deleteUserAndCloseModal = () => {
+    deleteUser(currentUser);
+    changeToCloseDeleteModal();
+  }
 
   return (
     <main className="portal">
@@ -30,7 +37,10 @@ export const DeleteModal = () => {
           >
             Cancelar
           </button>
-          <button className="button button__modal button__modal--accept">
+          <button
+            onClick={deleteUserAndCloseModal}
+            className="button button__modal button__modal--accept"
+          >
             Aceptar
           </button>
         </div>
