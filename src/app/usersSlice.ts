@@ -26,6 +26,9 @@ export const userSlice = createSlice({
       state.users = action.payload
     },
     saveUser: (state, action) => {
+      state.users = [...state.users, action.payload ]
+    },
+    saveCurrentUser: (state, action) => {
       state.currentUser = action.payload
     },
     updateFormInfo: (state, action) => {
@@ -35,5 +38,5 @@ export const userSlice = createSlice({
   }
 })
 
-export const { saveUsers, saveUser, updateFormInfo } = userSlice.actions;
+export const { saveUsers, saveUser, saveCurrentUser, updateFormInfo } = userSlice.actions;
 export default userSlice.reducer;

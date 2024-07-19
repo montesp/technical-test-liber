@@ -9,6 +9,7 @@ export const CreateUserModal = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     createUser(formData);
+    changeToCloseCreateModal();
   }
 
 
@@ -24,7 +25,7 @@ export const CreateUserModal = () => {
         >
           <AiOutlineClose size={16} />
         </button>
-        <form 
+        <form
           className="form"
           onSubmit={onSubmit}
         >
@@ -62,7 +63,7 @@ export const CreateUserModal = () => {
           <select
             className="form__select"
             name="status"
-            value={formData.gender}
+            value={formData.status}
             onChange={updateFormUserData}
           >
             <option className="form__select-option form__select-option--selected" value="" disabled>
@@ -71,9 +72,6 @@ export const CreateUserModal = () => {
             <option className="form__select-option" value="active">Activo</option>
             <option className="form__select-option" value="inactive">Inactivo</option>
           </select>
-
-         
-
           <div className="modal__buttons">
             <button
               className="button button__modal button__modal--cancel"
