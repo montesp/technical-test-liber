@@ -1,8 +1,13 @@
+import { useModal } from "../../hooks/useModal";
 import { Props } from "./types";
 import { AiFillSave, AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 
 export const TableRow = ( { user }: Props ) => {
+  const {
+    changeToOpenDeleteModal
+  } = useModal();
+
   return (
     <tr className="table__row table__row--body">
       <td className="table__cell table__cell--body">
@@ -29,15 +34,15 @@ export const TableRow = ( { user }: Props ) => {
       <td className="table__cell table__cell--body">
         <button className="button button__action">
           <AiFillSave size={14}  />
-          {/* <span>Editar</span> */}
         </button>
         <button className="button button__action">
           <AiFillEdit size={14}  />
-          {/* <span>Editar</span> */}
         </button>
-        <button className="button button__action">
+        <button
+          onClick={() => changeToOpenDeleteModal(user)}
+          className="button button__action"
+        >
           <AiFillDelete size={14}  />
-          {/* <span>Editar</span> */}
         </button>
       </td>
     </tr>
