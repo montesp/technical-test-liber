@@ -15,7 +15,14 @@ const initialState: UserState = {
     gender: '',
     name: '',
     status: ''
-  }
+  },
+  formUserData: {
+    id: 0,
+    email: 'email',
+    gender: 'ge',
+    name: 'n',
+    status: 's'
+  },
 }
 
 export const userSlice = createSlice({
@@ -35,8 +42,23 @@ export const userSlice = createSlice({
       const { name, value } = action.payload;
       state.formData[name] = value;
     },
+    updateFormUserInfo: (state, action) => {
+      const { name, value } = action.payload;
+      state.formUserData[name] = value;
+    },
+    saveFormUserInfo: (state, action) => {
+      const user = action.payload;
+      state.formUserData = user;
+    },
   }
 })
 
-export const { saveUsers, saveUser, saveCurrentUser, updateFormInfo } = userSlice.actions;
+export const {
+  saveUsers,
+  saveUser,
+  saveCurrentUser,
+  updateFormInfo,
+  updateFormUserInfo,
+  saveFormUserInfo,
+} = userSlice.actions;
 export default userSlice.reducer;

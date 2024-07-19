@@ -4,6 +4,7 @@ export interface UserState {
   users: User[];
   currentUser: User;
   formData: UserCreated;
+  formUserData: User;
 }
 
 export interface ModalState {

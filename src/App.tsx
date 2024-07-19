@@ -8,6 +8,10 @@ const router = createBrowserRouter([
     element: <HomePage/>,
   },
   {
+    path: "user/",
+    element: <UserPage/>,
+  },
+  {
     path: "user/:userId",
     element: <UserPage/>,
   },
