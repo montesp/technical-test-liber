@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import { Props } from "./types";
-import { AiFillSave, AiFillEdit, AiFillDelete } from "react-icons/ai";
+import { AiFillEdit, AiFillDelete, AiOutlineUser } from "react-icons/ai";
 
 
 export const TableRow = ( { user }: Props ) => {
@@ -32,10 +32,12 @@ export const TableRow = ( { user }: Props ) => {
       </td>
       <td className="table__cell table__cell--body">
         <button className="button button__action">
-          <AiFillSave size={14}  />
+        <Link to={`user/${user.id}`}>
+          <AiOutlineUser size={14}  />
+        </Link>
         </button>
         <button  className="button button__action">
-          <Link to={`user/${user.id}`}>
+          <Link to={`edit/${user.id}`}>
             <AiFillEdit size={14}  />
           </Link>
         </button>
