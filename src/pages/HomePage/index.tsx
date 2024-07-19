@@ -29,14 +29,14 @@ export const HomePage = () => {
       )}
 
 
-      <main className="home">
-        <h1 className='home__title'>
+      <main className="w-full max-w-1320 min-h-screen mx-auto py-12 px-8">
+        <h1 className='mb-1 text-3xl font-bold text-black tablet-sm:text-4xl desktop-sm:text-5xl desktop-md:text-7xl'>
           Lista de Usuarios
         </h1>
-        <div className="home__buttons">
+        <div className="flex justify-end w-full">
           <button
             onClick={changeToOpenCreateModal}
-            className="button button--create"
+            className="w-full mx-1 mb-6 px-12 py-4 outline-none border-none rounded-xl bg-black font-semibold text-white cursor-pointer tablet-sm:w-max"
           >
             Crear usuario
           </button>

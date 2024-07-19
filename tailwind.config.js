@@ -12,14 +12,22 @@ export default {
           100: '#858585',
           200: '#C8C8CF'
         },
-        'blue': '#2875A8',
-        'blue-background': '#CCE0FF33',
-        'purple': '#6F1CA6',
-        'purple-background': '#EEE4F2',
-        'success': '#16c152',
-        'success-background':'#16C152',
-        'error': '#F3415E',
-        'error-background': '#FFF1F2'
+        'blue': {
+          100: '#CCE0ff33',
+          200: '#2875A8',
+        },
+        'purple': {
+          100: '#EEE4F2',
+          200: '#6F1CA6',
+        },
+        'success':{
+          100: '#16C152',
+          200: '#EEFDF6',
+        },
+        'error': {
+          100: '#F3415E',
+          200: '#FFF1F2',
+        },
       },
       screens: {
         'mobile-sm': '320px',
@@ -47,7 +55,7 @@ export default {
         '6xl': '2.6rem',
         '7xl': '2.8rem',
         '8xl': '3rem'
-      }
+      },
     },
   },
   plugins: [],

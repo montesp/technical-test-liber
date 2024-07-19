@@ -14,74 +14,74 @@ export const CreateUserModal = () => {
 
 
   return (
-    <main className="portal">
-      <section className="modal modal__create">
-        <h2 className="modal__title modal__title--create">
+    <main className="absolute top-0 right-0 left-0 bottom-0 z-10 flex justify-center items-center w-screen h-screen bg-black bg-opacity-30">
+      <section className="relative flex flex-col w-[460px] max-w-[280px] max-h-[820px] px-8 py-6 rounded-lg bg-white mobile-md:max-w-[380px] tablet-sm:py-10 tablet-sm:px-12 tablet-md:max-w-[420px]">
+        <h2 className="mb-6 text-3xl font-medium text-black tablet-sm:text-4xl">
           Crear usuario
         </h2>
         <button
           onClick={changeToCloseCreateModal}
-          className="button button__quit"
+          className="absolute top-8 right-7 mx-1 bg-white font-semibold text-gray-100 cursor-pointer tablet-sm:top-12 tablet-sm:right-11"
         >
           <AiOutlineClose size={16} />
         </button>
         <form
-          className="form"
+          className="w-full"
           onSubmit={onSubmit}
         >
-          <div className="form__input">
+          <div className="p-4 mb-4 border border-gray-100 rounded-lg">
             <input
               type="text"
               name="name"
-              className="form__input-text"
+              className="w-full text-lg outline-none  font-medium text-family"
               placeholder="Nombre"
               value={formData.name}
               onChange={updateFormData}
             />
           </div>
-          <div className="form__input">
+          <div className="p-4 mb-4 border border-gray-100 rounded-lg">
             <input
               type="email"
               name="email"
-              className="form__input-text"
+              className="w-full text-lg outline-none font-medium text-family"
               placeholder="Correo"
               value={formData.email}
               onChange={updateFormData}
             />
           </div>
           <select
-            className="form__select"
+            className="w-full mb-4 p-4 border border-gray-100 rounded-lg outline-none bg-white text-lg text-family text-black appearance-none cursor-pointer"
             name="gender"
             value={formData.gender}
             onChange={updateFormData}
           >
-            <option value="" disabled> Selecciona tu genero </option>
-            <option value="male">Hombre</option>
-            <option value="female">Mujer</option>
+            <option className="p-4 bg-white text-md text-black text-family" value="" disabled> Selecciona tu genero </option>
+            <option className="p-4 bg-white text-md text-black text-family" value="male">Hombre</option>
+            <option className="p-4 bg-white text-md text-black text-family" value="female">Mujer</option>
           </select>
 
           <select
-            className="form__select"
+            className="w-full mb-4 p-4 border border-gray-100 rounded-lg outline-none bg-white text-lg text-family text-black  appearance-none cursor-pointer"
             name="status"
             value={formData.status}
             onChange={updateFormData}
           >
-            <option className="form__select-option form__select-option--selected" value="" disabled>
+            <option className="p-4 bg-white text-md  text-black text-family" value="" disabled>
               Selecciona un estado
             </option>
-            <option className="form__select-option" value="active">Activo</option>
-            <option className="form__select-option" value="inactive">Inactivo</option>
+            <option className="p-4 bg-white text-md  text-black text-family" value="active">Activo</option>
+            <option className="p-4 bg-white text-md  text-black text-family" value="inactive">Inactivo</option>
           </select>
-          <div className="modal__buttons">
+          <div className="flex justify-between gap-3 tablet-sm:justify-end">
             <button
-              className="button button__modal button__modal--cancel"
+              className="w-2/5 px-5 py-4 rounded-lg text-black text-md font-semibold hover:outline-1 hover:outline hover:outline-black tablet-sm:w-1/3 tablet-sm:text-lg"
               onClick={changeToCloseCreateModal}
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="button button__modal button__modal--accept"
+              className="w-2/5 px-7 py-4 rounded-lg bg-black font-semibold text-white tablet-sm:w-1/3 tablet-sm:text-lg"
             >
               Crear
             </button>

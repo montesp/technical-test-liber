@@ -7,8 +7,8 @@ export const UserList = () => {
   const { users } = useUser();
 
   return (
-    <section className="wrapper">
-      <table className="table">
+    <section className="flex flex-col overflow-auto border-2 border-gray-200 rounded-xl">
+      <table className="w-full   text-2xl bg-white overflow-auto">
         <thead>
           <TableHead/>
         </thead>
