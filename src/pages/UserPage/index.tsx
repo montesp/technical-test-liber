@@ -2,6 +2,11 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Input } from "../../components/Input";
+import { Select } from "../../components/Select";
+import { inputs, selects } from "./data";
+
+
 
 export const UserPage = () => {
   const params = useParams();
@@ -37,83 +42,33 @@ export const UserPage = () => {
       <form
           className="grid grid-cols-1 gap-4 w-full px-4 py-8  rounded-2xl shadow-md shadow-gray-300 bg-white tablet-sm:grid-cols-2 tablet-sm:gap-8 "
       >
-          <div className="flex flex-col gap-2 opacity-50">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="name"
-            >
-              Nombre
-            </label>
-            <div className="p-4 border border-b border-gray-300 bg-gray-300 rounded-lg">
-              <input
-                type="text"
-                name="name"
-                className="w-full outline-none border-none text-lg font-medium bg-gray-300 placeholder:text-gray-300"
-                placeholder="Ingresa tu nombre"
-                value={formUserData.name}
-                onChange={updateFormUserData}
-                disabled
+          {
+            inputs.map( input => (
+              <Input
+                key={ input.name }
+                label={ input.label }
+                name={ input.name }
+                placeholder={ input.placeholder }
+                value={formUserData[`${input.name}`]}
+                updateFormData={updateFormUserData}
+                isDisabled={ input.isDisabled }
               />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 opacity-50">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="email"
-            >
-              Correo
-            </label>
-            <div className="p-4 border border-b border-gray-300 bg-gray-300 rounded-lg">
-              <input
-                type="email"
-                name="email"
-                className="w-full outline-none border-none text-lg bg-gray-300 font-medium"
-                placeholder="Correo"
-                value={formUserData.email}
-                onChange={updateFormUserData}
+            ))
+          }
+
+          {
+            selects.map( select => (
+              <Select
+                key={ select.name }
+                label={ select.label }
+                name={ select.name }
+                options={ select.options }
+                updateFormData={updateFormUserData}
+                value={formUserData[`${select.name}`]}
+                isDisabled={ select.isDisabled }
               />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2 opacity-50">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="genre"
-            >
-              Genero
-            </label>
-            <select
-              className="w-full p-4 border border-gray-300 bg-gray-300 rounded-lg appearance-none bg-gray text-lg text-black font-medium cursor-pointer"
-              name="gender"
-              value={formUserData.gender}
-              onChange={updateFormUserData}
-              disabled
-            >
-              <option className="p-4 bg-white text-md text-black" value="" disabled> Selecciona tu genero </option>
-              <option className="p-4 bg-white text-md text-black" value="male">Hombre</option>
-              <option className="p-4 bg-white text-md text-black" value="female">Mujer</option>
-            </select>
-          </div>
-          <div className="flex flex-col gap-2 opacity-50">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="status"
-            >
-              Estado
-            </label>
-            <select
-              className="w-full p-4 border border-gray-300 bg-gray-300 rounded-lg appearance-none bg-gray  text-lg text-black font-medium cursor-pointer"
-              name="status"
-              value={formUserData.status}
-              onChange={updateFormUserData}
-              disabled
-            >
-              <option className="p-4 bg-white text-md text-black" value="" disabled>
-                Selecciona un estado
-              </option>
-              <option className="p-4 bg-white text-md text-black" value="active">Activo</option>
-              <option className="p-4 bg-white text-md text-black" value="inactive">Inactivo</option>
-            </select>
-          </div>
+            ))
+          }
         </form>
     </main>
   );

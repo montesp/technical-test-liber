@@ -3,6 +3,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useUser } from "../../hooks/useUser";
 import { UserCreated } from "../../types/user.model";
 import { AiFillEdit, AiOutlineArrowLeft } from "react-icons/ai";
+import { inputs, selects } from "./data";
+import { Select } from "../../components/Select";
+import { Input } from "../../components/Input";
+
 
 export const EditUserPage = () => {
 
@@ -52,7 +56,35 @@ export const EditUserPage = () => {
           className="grid grid-cols-1 gap-4 w-full px-4 py-8  rounded-2xl shadow-md shadow-gray-300 bg-white tablet-sm:grid-cols-2 tablet-sm:gap-8 "
           onSubmit={onSubmit}
         >
-          <div className="flex flex-col gap-2">
+
+          {
+            inputs.map( input => (
+              <Input
+                key={ input.name }
+                label={ input.label }
+                name={ input.name }
+                placeholder={ input.placeholder }
+                value={formUserData[`${input.name}`]}
+                updateFormData={updateFormUserData}
+                isDisabled={ input.isDisabled }
+              />
+            ))
+          }
+
+          {
+            selects.map( select => (
+              <Select
+                key={ select.name }
+                label={ select.label }
+                name={ select.name }
+                options={ select.options }
+                updateFormData={updateFormUserData}
+                value={formUserData[`${select.name}`]}
+                isDisabled={ select.isDisabled }
+              />
+            ))
+          }
+          {/* <div className="flex flex-col gap-2">
             <label
               className="text-xl font-semibold"
               htmlFor="name"
@@ -127,7 +159,7 @@ export const EditUserPage = () => {
               <option className="p-4 bg-white text-md text-black" value="active">Activo</option>
               <option className="p-4 bg-white text-md text-black" value="inactive">Inactivo</option>
             </select>
-          </div>
+          </div> */}
           <div className="flex justify-end w-full tablet-sm:col-span-2">
             <button
               type="submit"
