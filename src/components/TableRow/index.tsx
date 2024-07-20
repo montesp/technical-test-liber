@@ -8,7 +8,7 @@ export const TableRow = ( { user }: Props ) => {
   const { changeToOpenDeleteModal } = useModal();
 
   return (
-    <tr className="row w-min min-w-full py-2 px-3 border-b-2 border-gray-200 text-black opacity-80 tablet-sm:px-4 desktop-sm:px-8 last:border-none">
+    <tr className="row w-min min-w-full py-2 px-3 border-b border-gray-300 text-black opacity-80 tablet-sm:px-4 desktop-sm:px-8 last:border-none">
       <td className="flex items-center px-2 text-md font-semibold text-start text-ellipsis tablet-sm:text-lg">
         { user.id }
       </td>
@@ -29,19 +29,19 @@ export const TableRow = ( { user }: Props ) => {
         </div>
       </td>
       <td className="flex items-center gap-1 px-2 text-md font-semibold text-start text-ellipsis tablet-sm:text-lg">
-        <button className=" py-3 px-4 rounded-3xl bg-gray-900 text-sm text-white font-semibold cursor-pointer">
+        <button className=" py-3 px-4 rounded-3xl bg-black  text-sm text-white font-semibold cursor-pointer">
           <Link to={`user/${user.id}`}>
             <AiOutlineUser size={14}  />
           </Link>
         </button>
-        <button  className="py-3 px-4 rounded-3xl bg-gray-900 text-sm text-white font-semibold cursor-pointer">
+        <button  className="py-3 px-4 rounded-3xl bg-black text-sm text-white font-semibold cursor-pointer">
           <Link to={`edit/${user.id}`}>
             <AiFillEdit size={14}  />
           </Link>
         </button>
         <button
           onClick={() => changeToOpenDeleteModal(user)}
-          className="py-3 px-4 rounded-3xl bg-gray-900 text-sm text-white font-semibold cursor-pointer"
+          className="py-3 px-4 rounded-3xl bg-black text-sm text-white font-semibold cursor-pointer"
         >
           <AiFillDelete size={14}  />
         </button>

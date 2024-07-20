@@ -5,12 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'background': '#F5F5F7',
+        'background': '#F2F8FD',
         'black': '#222326',
         'white': '#FFFFFF',
         'gray': {
           100: '#858585',
-          200: '#C8C8CF'
+          200: '#C8C8CF',
+          300: '#D7D9DF'
         },
         'blue': {
           100: '#CCE0ff33',

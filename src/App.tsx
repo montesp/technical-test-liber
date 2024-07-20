@@ -24,7 +24,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <RouterProvider router={ router } />
+    <div className="bg-background">
+      <RouterProvider router={ router } />
+    </div>
   )
 }
 
