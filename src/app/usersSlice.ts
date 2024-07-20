@@ -18,10 +18,10 @@ const initialState: UserState = {
   },
   formUserData: {
     id: 0,
-    email: 'email',
-    gender: 'ge',
-    name: 'n',
-    status: 's'
+    email: '',
+    gender: '',
+    name: '',
+    status: ''
   },
 }
 
