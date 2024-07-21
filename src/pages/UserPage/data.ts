@@ -18,7 +18,7 @@ export const inputs: InputProps = [
 export const selects: SelectProps = [
   {
     label: 'Genero',
-    name: 'genre',
+    name: 'gender',
     options: [
       {
         value: 'male',

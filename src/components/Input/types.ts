@@ -5,4 +5,5 @@ export interface Props {
   label:string;
   isDisabled: boolean;
   updateFormData: () => void;
+  isEmptyInfo:boolean;
 }

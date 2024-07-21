@@ -1,8 +1,8 @@
 import { Props } from "./types";
 
-export const Select = ({isDisabled, label, name, options, updateFormData, value}: Props) => {
+export const Select = ({isDisabled, label, name, options, updateFormData, value, isEmptyInfo}: Props) => {
   return (
-    <div className={`flex flex-col gap-2 ${isDisabled && 'opacity-50'}`}>
+    <div className={`flex flex-col gap-2 mb-2 ${isDisabled && 'opacity-50'}`}>
       <label
         className="text-xl font-semibold"
         htmlFor={ name }
@@ -16,7 +16,7 @@ export const Select = ({isDisabled, label, name, options, updateFormData, value}
         onChange={ updateFormData }
         disabled={ isDisabled }
       >
-        <option className="p-4 bg-white text-md text-black" value="" disabled> Selecciona {name} </option>
+        <option className="p-4 bg-white text-md text-black" value="" disabled> Selecciona {label} </option>
         {
           options.map( option => (
             <option className="p-4 bg-white text-md text-black" value={option.value}>
@@ -25,6 +25,11 @@ export const Select = ({isDisabled, label, name, options, updateFormData, value}
           ))
         }
       </select>
+      { (isEmptyInfo && value === '') && (
+        <p className="text-lg text-error-100">
+          { label } es requerido
+        </p>
+      )}
     </div>
   );
 }

@@ -1,15 +1,27 @@
 import { AiOutlineClose } from "react-icons/ai";
 import { useModal } from "../../hooks/useModal";
 import { useUser } from "../../hooks/useUser";
+import { useState } from "react";
+import { inputs, selects } from "./data";
+import { Input } from "../Input";
+import { Select } from "../Select";
 
 export const CreateUserModal = () => {
   const { changeToCloseCreateModal } = useModal();
   const { createUser, formData, updateFormData } = useUser();
+  const [ isEmptyInfo, setIsEmptyInfo ] = useState(false);
+
+
 
   const onSubmit = (event) => {
     event.preventDefault();
-    createUser(formData);
-    changeToCloseCreateModal();
+    if(formData.name !== '' && formData.email !== '' && formData.gender !== '' && formData.status !== '' ){
+      createUser(formData);
+      changeToCloseCreateModal();
+      setIsEmptyInfo(false)
+    } else {
+      setIsEmptyInfo(true)
+    }
   }
 
   return (
@@ -28,81 +40,36 @@ export const CreateUserModal = () => {
           className="w-full"
           onSubmit={onSubmit}
         >
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="name"
-            >
-              Nombre
-            </label>
-            <div className="p-4 mb-4 border border-gray-300 rounded-lg">
-              <input
-                type="text"
-                name="name"
-                className="w-full text-lg outline-none  font-medium text-family"
-                placeholder="Ingresa el nombre"
-                value={formData.name}
-                onChange={updateFormData}
+         {
+            inputs.map( input => (
+              <Input
+                key={ input.name }
+                label={ input.label }
+                name={ input.name }
+                placeholder={ input.placeholder }
+                value={formData[`${input.name}`]}
+                updateFormData={updateFormData}
+                isDisabled={ input.isDisabled }
+                isEmptyInfo= { isEmptyInfo }
               />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <div className="p-4 mb-4 border border-gray-300 rounded-lg">
-              <input
-                type="email"
-                name="email"
-                className="w-full text-lg outline-none font-medium text-family"
-                placeholder="Correo"
-                value={formData.email}
-                onChange={updateFormData}
+            ))
+          }
+
+          {
+            selects.map( select => (
+              <Select
+                key={ select.name }
+                label={ select.label }
+                name={ select.name }
+                options={ select.options }
+                updateFormData={updateFormData}
+                value={formData[`${select.name}`]}
+                isDisabled={ select.isDisabled }
+                isEmptyInfo= { isEmptyInfo }
               />
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="genre"
-            >
-              Genero
-            </label>
-            <select
-              className="w-full mb-4 p-4 border border-gray-300 rounded-lg outline-none bg-white text-lg text-family text-black appearance-none cursor-pointer"
-              name="gender"
-              value={formData.gender}
-              onChange={updateFormData}
-            >
-              <option className="p-4 bg-white text-md text-black text-family" value="" disabled> Selecciona tu genero </option>
-              <option className="p-4 bg-white text-md text-black text-family" value="male">Hombre</option>
-              <option className="p-4 bg-white text-md text-black text-family" value="female">Mujer</option>
-            </select>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-xl font-semibold"
-              htmlFor="status"
-            >
-              Estado
-            </label>
-            <select
-              className="w-full mb-4 p-4 border border-gray-300 rounded-lg outline-none bg-white text-lg text-family text-black  appearance-none cursor-pointer"
-              name="status"
-              value={formData.status}
-              onChange={updateFormData}
-            >
-              <option className="p-4 bg-white text-md  text-black text-family" value="" disabled>
-                Selecciona un estado
-              </option>
-              <option className="p-4 bg-white text-md  text-black text-family" value="active">Activo</option>
-              <option className="p-4 bg-white text-md  text-black text-family" value="inactive">Inactivo</option>
-            </select>
-          </div>
-          <div className="flex justify-between gap-3 tablet-sm:justify-end">
+            ))
+          }
+          <div className="flex justify-between gap-3 mt-4 tablet-sm:justify-end">
             <button
               className="w-2/5 px-5 py-4 rounded-lg text-black text-md font-semibold hover:outline-1 hover:outline hover:outline-black tablet-sm:w-1/3 tablet-sm:text-lg"
               onClick={changeToCloseCreateModal}

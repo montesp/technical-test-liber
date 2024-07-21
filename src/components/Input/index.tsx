@@ -1,8 +1,11 @@
 import { Props } from "./types";
 
-export const Input  = ({ isDisabled, label, name, placeholder, updateFormData, value }: Props) => {
+export const Input  = ({ isDisabled, label, name, placeholder, updateFormData, value, isEmptyInfo }: Props) => {
+  
+  
+  
   return (
-    <div className={`flex flex-col gap-2 ${isDisabled && 'opacity-50'}`}>
+    <div className={`flex flex-col gap-2 mb-3 ${isDisabled && 'opacity-50'}`}>
       <label
         className="text-xl font-semibold"
         htmlFor={name}
@@ -20,6 +23,11 @@ export const Input  = ({ isDisabled, label, name, placeholder, updateFormData, v
           disabled={isDisabled}
         />
       </div>
+      { (isEmptyInfo && value === '') && (
+        <p className="text-lg text-error-100">
+          { label } es requerido
+        </p>
+      )}
     </div>
   );
 }

@@ -5,6 +5,7 @@ export interface Props {
   options: Select[];
   isDisabled: boolean;
   updateFormData: () => void;
+  isEmptyInfo: boolean;
 }
 
 export interface Select {
